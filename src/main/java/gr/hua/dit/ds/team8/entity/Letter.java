@@ -35,7 +35,7 @@ public class Letter {
     public Letter() {
     }
 
-    public Letter(int id,String student_fn, String student_ln, String teacher_fn, String teacher_ln, String email) {
+    public Letter(int id, String student_fn, String student_ln, String teacher_fn, String teacher_ln, String email) {
         super();
         this.id = id;
         this.student_fn = student_fn;
