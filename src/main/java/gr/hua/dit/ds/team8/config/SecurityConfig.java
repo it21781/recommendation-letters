@@ -17,7 +17,7 @@ import javax.sql.DataSource;
 @Configuration
 @EnableWebSecurity
 //EnableGlobalMethodSecurity(securedEnabled = true)
-public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
     private DataSource dataSource;
@@ -34,7 +34,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.httpBasic().and().authorizeRequests()
-                .antMatchers("/**").hasRole("ADMIN")
+                .antMatchers("/teachers*").hasRole("TEACHER")
+                .antMatchers("/students*").hasRole("STUDENT")
                 .and().csrf().disable().headers().frameOptions().disable()
                 .and().formLogin().permitAll().and().logout().permitAll();
     }
