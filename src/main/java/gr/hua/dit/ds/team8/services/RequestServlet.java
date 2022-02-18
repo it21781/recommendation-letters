@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 
-@WebServlet("/letter_check")
+@WebServlet("/letter_request")
 public class RequestServlet extends HttpServlet {
 
     @Autowired
