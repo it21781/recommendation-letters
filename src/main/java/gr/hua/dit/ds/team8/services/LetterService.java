@@ -19,7 +19,7 @@ public class LetterService {
         newLetter.setTeacher_fn();
         newLetter.setTeacher_ln();
         newLetter.setEmail();
-        newLetter.setApproved();
+        newLetter.setApproved(false);
         letterRepository.save(newLetter);
     }
 }

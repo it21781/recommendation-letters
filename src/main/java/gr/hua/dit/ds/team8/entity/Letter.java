@@ -35,7 +35,7 @@ public class Letter {
     public Letter() {
     }
 
-    public Letter(String student_fn, String student_ln, String teacher_fn, String teacher_ln, String email) {
+    public Letter(String student_fn, String student_ln, String teacher_fn, String teacher_ln, String email, Boolean approved) {
         super();
         //this.id = id;
         this.student_fn = student_fn;
@@ -43,6 +43,7 @@ public class Letter {
         this.teacher_fn = teacher_fn;
         this.teacher_ln = teacher_ln;
         this.email = email;
+        this.approved = approved;
     }
 
     public int getId() {
