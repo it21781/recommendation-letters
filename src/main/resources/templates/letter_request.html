@@ -9,13 +9,12 @@
 <h2 style="text-align:center;"> Insert Letter information!</h2>
 
 
-<form action="#" th:action="@{/letter}" th:object="${letter}" method="post">
-
+<form name="/letter_check" metod="post" action="RequestServlet"
 <p style="text-align:center;"> Students Firstname</p>
-<input style="text-align:center;" type="text" name="student_fn"  th:field="*{student_fn}"/>
+<input style="text-align:center;" type="text" name="student_fn"  />
 
 <p style="text-align:center;"> Students Lastname</p>
-<input style="text-align:center;" type="text" name="student_ln" th:field="*{student_fn}"/>
+<input style="text-align:center;" type="text" name="student_ln" />
 
 <p style="text-align:center;"> Teachers Firstname</p>
 <input style="text-align:center;" type="text" name="teacher_fn"/>
