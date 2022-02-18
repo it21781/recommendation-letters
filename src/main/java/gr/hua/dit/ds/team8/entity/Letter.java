@@ -35,9 +35,9 @@ public class Letter {
     public Letter() {
     }
 
-    public Letter(int id, String student_fn, String student_ln, String teacher_fn, String teacher_ln, String email) {
+    public Letter(String student_fn, String student_ln, String teacher_fn, String teacher_ln, String email) {
         super();
-        this.id = id;
+        //this.id = id;
         this.student_fn = student_fn;
         this.student_ln = student_ln;
         this.teacher_fn = teacher_fn;
@@ -91,6 +91,14 @@ public class Letter {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public void setApproved(boolean approved) {
+        this.approved = approved;
+    }
+
+    public boolean getApproved() {
+        return approved;
     }
 
     @Override
