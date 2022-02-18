@@ -1,6 +1,7 @@
 package gr.hua.dit.ds.team8.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -15,4 +16,6 @@ public class ViewController {
     public String LetterCheck() {
         return "letter_check";
     }
+
+
 }
