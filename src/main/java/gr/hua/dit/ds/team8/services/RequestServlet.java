@@ -2,6 +2,8 @@ package gr.hua.dit.ds.team8.services;
 
 
 import gr.hua.dit.ds.team8.entity.Letter;
+import gr.hua.dit.ds.team8.repository.LetterRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,6 +15,9 @@ import java.io.IOException;
 
 @WebServlet("/letter_check")
 public class RequestServlet extends HttpServlet {
+
+    @Autowired
+    private LetterRepository letterRepository;
 
     protected void doPost(HttpServletRequest request,
                           HttpServletResponse response) throws ServletException, IOException {
@@ -34,6 +39,8 @@ public class RequestServlet extends HttpServlet {
         letter.setTeacher_fn(t_fn);
         letter.setTeacher_ln(t_ln);
         letter.setEmail(email);
+        letter.setApproved(false);
+        letterRepository.save(letter);
 /*
         System.out.println(letter.getStudent_ln());
         System.out.println(letter.getStudent_fn());
