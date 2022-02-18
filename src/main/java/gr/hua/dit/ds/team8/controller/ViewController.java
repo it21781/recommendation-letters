@@ -3,8 +3,6 @@ package gr.hua.dit.ds.team8.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import javax.websocket.OnError;
-
 @Controller
 public class ViewController {
 
