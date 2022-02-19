@@ -1,7 +1,8 @@
 package gr.hua.dit.ds.team8.controller;
 
-import gr.hua.dit.ds.team8.services.DbFetch;
 import gr.hua.dit.ds.team8.services.LetterService;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -44,8 +45,15 @@ public class LetterController {
 
     @GetMapping("/letter_check")
     public String listLetters(Model model) {
-        DbFetch.fetch();
         model.addAttribute("letters", service.getLetters());
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        String username;
+        if (principal instanceof UserDetails) {
+            username = ((UserDetails) principal).getUsername();
+        } else {
+            username = principal.toString();
+        }
+        System.out.println(username);
 
         return "/letter_check";
     }
