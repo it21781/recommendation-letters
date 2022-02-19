@@ -38,7 +38,14 @@ public class LetterController {
 
         service.createLetter(formData.toParameters());
 
-        return "redirect:/letter_request";
+        return "redirect:/letter_request/success";
+    }
+
+    @GetMapping("/letter_check")
+    public String listLetters(Model model) {
+        model.addAttribute("letters", service.getLetters());
+
+        return "/letter_check";
     }
 
 }

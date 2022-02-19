@@ -17,5 +17,11 @@ public class ViewController {
         return "letter_check";
     }
 
+    @RequestMapping ("/letter_request/success")
+    public String Success() {
+        return "success";
+    }
+
+
 
 }

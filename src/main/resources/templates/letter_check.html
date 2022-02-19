@@ -1,13 +1,20 @@
-<!DOCTYPE HTML>
-<html>
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>letter_check</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta charset="UTF-8">
+    <title>Users</title>
 </head>
-<body style="background-color:LightGray;">
-<h1  style="text-align:center;"> RECOMMENDATION LETTERS PLATFORM </h1>
-<h2  style="text-align:center;"> Requests for a Recommendation Letter </h2>
-<p style="text-align:center;"> LOG IN AS: &nbsp;&nbsp;<a href="/students" >
-    <input type="submit" value="STUDENT"></a>  </p>
+<body>
+<main>
+    <h1>Letters</h1>
+
+    <ul>
+        <li th:each="letter : ${letters}"
+            th:text="|${letter.id} - ${letter.student_fn} ${letter.student_ln} , ${letter.teacher_fn} ${letter.teacher_ln} , ${letter.email}|">
+        </li>
+    </ul>
+</main>
+
 </body>
 </html>
