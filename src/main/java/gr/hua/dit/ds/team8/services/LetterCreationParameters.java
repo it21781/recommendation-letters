@@ -7,12 +7,16 @@ public class LetterCreationParameters {
         private final String student_ln;
         private final String teacher_fn;
         private final String teacher_ln;
+        private final String purpose;
+        private final String marks;
         private final String email;
 
         public LetterCreationParameters(String student_fn,
                                         String student_ln,
                                         String teacher_fn,
                                         String teacher_ln,
+                                        String purpose,
+                                        String marks,
                                         String email) {
            // Assert.notNull(teacher_fn, "givenName should not be null");
            // Assert.notNull(teacher_ln, "familyName should not be null");
@@ -23,6 +27,8 @@ public class LetterCreationParameters {
             this.student_ln = student_ln;
             this.teacher_fn = teacher_fn;
             this.teacher_ln =teacher_ln;
+            this.purpose =purpose;
+            this.marks =marks;
             this.email = email;
         }
 
@@ -38,6 +44,12 @@ public class LetterCreationParameters {
         public String getTeacher_ln() {
              return teacher_ln;
         }
+        public String getPurpose() {
+        return purpose;
+    }
+        public String getMarks() {
+        return marks;
+    }
         public String getEmail() {
             return email;
          }

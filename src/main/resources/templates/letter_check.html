@@ -11,7 +11,7 @@
 
     <ul>
         <li th:each="letter : ${letters}"
-            th:text="|${letter.id} - ${letter.student_fn} ${letter.student_ln} , ${letter.teacher_fn} ${letter.teacher_ln} , ${letter.email}|">
+            th:text="|${letter.id} - ${letter.student_fn} ${letter.student_ln} , ${letter.teacher_fn} ${letter.teacher_ln} , ${letter.purpose} , ${letter.marks} , ${letter.email}|">
         </li>
     </ul>
 </main>

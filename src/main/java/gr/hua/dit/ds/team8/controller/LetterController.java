@@ -1,5 +1,6 @@
 package gr.hua.dit.ds.team8.controller;
 
+import gr.hua.dit.ds.team8.services.DbFetch;
 import gr.hua.dit.ds.team8.services.LetterService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -43,6 +44,7 @@ public class LetterController {
 
     @GetMapping("/letter_check")
     public String listLetters(Model model) {
+        DbFetch.fetch();
         model.addAttribute("letters", service.getLetters());
 
         return "/letter_check";

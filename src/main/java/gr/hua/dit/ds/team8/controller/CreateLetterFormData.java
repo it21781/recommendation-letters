@@ -15,6 +15,10 @@ public class CreateLetterFormData {
     @NotNull
     private String teacher_ln;
     @NotNull
+    private String purpose;
+    @NotNull
+    private String marks;
+    @NotNull
     private String email;
 
 
@@ -50,6 +54,22 @@ public class CreateLetterFormData {
         this.teacher_ln = teacher_ln;
     }
 
+    public String getPurpose() {
+        return purpose;
+    }
+
+    public void setPurpose(String purpose) {
+        this.purpose = purpose;
+    }
+
+    public String getMarks() {
+        return marks;
+    }
+
+    public void setMarks(String marks) {
+        this.marks = marks;
+    }
+
     public String getEmail() {
         return email;
     }
@@ -60,6 +80,6 @@ public class CreateLetterFormData {
 
 
     public LetterCreationParameters toParameters() {
-        return new LetterCreationParameters(student_fn,student_ln,teacher_fn,teacher_ln,email);
+        return new LetterCreationParameters(student_fn,student_ln,teacher_fn,teacher_ln,purpose,marks,email);
     }
 }

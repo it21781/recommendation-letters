@@ -17,7 +17,7 @@ public class LetterServiceImpl  implements  LetterService{
 
     @Override
     public Letter createLetter(LetterCreationParameters parameters) {
-         Letter letter = new Letter(parameters.getStudent_fn(), parameters.getStudent_ln(), parameters.getTeacher_fn(), parameters.getTeacher_ln(), parameters.getEmail(),false);
+         Letter letter = new Letter(parameters.getStudent_fn(), parameters.getStudent_ln(), parameters.getTeacher_fn(), parameters.getTeacher_ln(), parameters.getPurpose(), parameters.getMarks(), parameters.getEmail(),false);
 
         return repository.save(letter);
     }

@@ -26,6 +26,12 @@ public class Letter {
     @Column(name = "teacher_ln")
     private String teacher_ln;
 
+    @Column(name = "purpose")
+    private String purpose;
+
+    @Column(name = "marks")
+    private String marks;
+
     @Column(name = "email")
     private String email;
 
@@ -35,13 +41,15 @@ public class Letter {
     public Letter() {
     }
 
-    public Letter(String student_fn, String student_ln, String teacher_fn, String teacher_ln, String email, Boolean approved) {
+    public Letter(String student_fn, String student_ln, String teacher_fn, String teacher_ln, String purpose, String marks, String email, Boolean approved) {
         super();
         //this.id = id;
         this.student_fn = student_fn;
         this.student_ln = student_ln;
         this.teacher_fn = teacher_fn;
         this.teacher_ln = teacher_ln;
+        this.purpose = purpose;
+        this.marks = marks;
         this.email = email;
         this.approved = approved;
     }
@@ -86,6 +94,22 @@ public class Letter {
         this.teacher_ln = teacher_ln;
     }
 
+    public String getPurpose() {
+        return purpose;
+    }
+
+    public void setPurpose(String purpose) {
+        this.purpose = purpose;
+    }
+
+    public String getMarks() {
+        return marks;
+    }
+
+    public void setMarks(String marks) {
+        this.marks = marks;
+    }
+
     public String getEmail() {
         return email;
     }
@@ -104,6 +128,6 @@ public class Letter {
 
     @Override
     public String toString() {
-        return "Letter [id=" + id + ", student_fn=" + student_fn + ", student_ln=" + student_ln + ", teacher_fn=" + teacher_fn + ", teacher_ln=" + teacher_ln + ", email=" + email + "]";
+        return "Letter [id=" + id + ", student_fn=" + student_fn + ", student_ln=" + student_ln + ", teacher_fn=" + teacher_fn + ", teacher_ln=" + teacher_ln + ", purpose=" + purpose +", marks=" + marks + ", email=" + email + "]";
     }
 }
