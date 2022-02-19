@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
 <html lang="en"
-        xmlns:th="https://www.thymeleaf.org" >
+      xmlns:th="https://www.thymeleaf.org" >
 <head>
     <meta charset="UTF-8">
     <title>letter_request.html</title>
@@ -12,34 +12,39 @@
 
 <main>
 
-<form th:object="${formData}"
-      th:action="@{/letter_request}"
-      method="post"
-<p style="text-align:center;"> Students Firstname</p>
-<input style="text-align:center;" type="text"  id="student_fn"   th:field="*{student_fn}" />
+    <form th:object="${formData}"
+          th:action="@{/letter_request}"
+          method="post"
+    <label for="student_fn" style="text-align:center;"> Students Firstname</label><br>
+    <input style="text-align:center;" type="text"  id="student_fn"   th:field="*{student_fn}"/><br>
 
-<p style="text-align:center;"> Students Lastname</p>
-<input style="text-align:center;" type="text" id="student_ln" th:field="*{student_ln}" />
+    <label for="student_ln" style="text-align:center;"> Students Lastname</label><br>
+    <input style="text-align:center;" type="text" id="student_ln" th:field="*{student_ln}"/><br>
 
-<p style="text-align:center;"> Teachers Firstname</p>
-<input style="text-align:center;" type="text" id="teacher_fn" th:field="*{teacher_fn}"/>
 
-<p style="text-align:center;"> Teachers Lastname</p>
-<input style="text-align:center;" type="text" id="teacher_ln" th:field="*{teacher_ln}"/>
+    <label for="teacher_fn" style="text-align:center;"> Teachers Firstname</label><br>
+    <input style="text-align:center;" type="text" id="teacher_fn" th:field="*{teacher_fn}"/><br>
 
-<p style="text-align:center;">Letter purpose (internship, postgraduate studies, work) </p>
-<input style="text-align:center;" type="text"  name="purpose" />
+    <label for="teacher_ln" style="text-align:center;"> Teachers Lastname</label><br>
+    <input style="text-align:center;" type="text" id="teacher_ln" th:field="*{teacher_ln}"/><br>
 
-<p style="text-align:center;"> Studies rating</p>
-<input style="text-align:center;" type="text"  id="marks" />
+    <u><p style="text-align:center;">Letter purpose </p></u>
+    <input  type="radio" id="intership"  value="intership" th:field="*{purpose}">
+    <label for="intership">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Intership</label><br>
+    <input  type="radio" id="postgraduate" value="postgraduate"th:field="*{purpose}">
+    <label for="postgraduate"> Postgraduate</label><br>
+    <input   type="radio" id="work" value="purp"  th:field="*{purpose}">
+    <label for="work">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Work</label><br>
+    <br>
+    <label for="marks" style="text-align:center;"> Studies rating</label><br>
+    <input style="text-align:center;" type="text"  id="marks" th:field="*{marks}" /><br>
 
-<p style="text-align:center;"> Receiver Email</p>
-<input style="text-align:center;" type="text"  name="email" th:field="*{email}"/>
+    <label for="email" style="text-align:center;"> Receiver Email</label><br>
+    <input  style="text-align:center;" type="text"  id="email" th:field="*{email}"/><br>
 
-<p style="text-align:center;"> </p>
-<input  style="text-align:center;"  type="submit"  id='submitletter'  value="Submit" />
+    <input  style="text-align:center;"  type="submit"  id='submitletter'  value="Submit" />
 
-</form>
+    </form>
 </main>
 </body>
 
