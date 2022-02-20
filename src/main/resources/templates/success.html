@@ -1,12 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
-    <title>Submitted</title>
+    <title>success</title>
 </head>
 <body style="background-color:LightGray;">
+
 <h1  style="text-align:center;"> RECOMMENDATION   LETTERS   PLATFORM </h1>
 <h2 style="text-align:center;color:forestgreen "> SUBMISSION SUCCESSFUL!! </h2>
-//LOG OUT BUTTON
+<form th:action="@{/appLogout}" method="POST">
+    <input style="text-align:center;" type="submit" value="Log Out" />
+</form>
+
 </body>
 </html>
