@@ -42,7 +42,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/teachers*").hasRole("ADMIN")
                 .antMatchers("/users*").hasRole("ADMIN")
                 .and().csrf().disable().headers().frameOptions().disable()
-                .and().formLogin().permitAll().and().logout().permitAll();
+                .and().formLogin().permitAll().and().logout()
+                .logoutUrl("/appLogout").logoutSuccessUrl("/").permitAll();
     }
 
     @Override
