@@ -5,10 +5,11 @@
     <meta charset="UTF-8">
     <title>Users</title>
 </head>
-<body>
-<main>
-    <h1>Letters</h1>
+<body style="background-color:LightGray;">
+<h1 style="text-align:center;"> RECOMMENDATION LETTERS PLATFORM </h1>
+<h2 style="text-align:center;"> Letter Requests from Students:</h2>
 
+<main>
     <ul>
         <li th:each="letter : ${letters}"
             th:text="|${letter.id} - ${letter.student_fn} ${letter.student_ln} , ${letter.teacher_fn} ${letter.teacher_ln} , ${letter.purpose} , ${letter.marks} , ${letter.email}|">
@@ -16,5 +17,15 @@
     </ul>
 </main>
 
+<form action="/">
+    <p>Insert the text of the  recommendation letter</p>
+    <textarea id="w3review" name="w3review" rows="6" cols="80"></textarea>
+    <br><br>
+    <input type="submit" value="Submit">
+</form>
+
+<form th:action="@{/appLogout}" method="POST">
+    &nbsp;&nbsp;&nbsp;&nbsp;  <input type="submit" value="Log Out"/>
+</form>
 </body>
 </html>
