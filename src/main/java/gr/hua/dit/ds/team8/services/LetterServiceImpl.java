@@ -5,6 +5,7 @@ import gr.hua.dit.ds.team8.entity.Letter;
 import gr.hua.dit.ds.team8.repository.LetterRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -24,6 +25,8 @@ public class LetterServiceImpl  implements  LetterService{
 
     @Override
     public List<Letter> getLetters() {
-        return repository.findAll();
+        ArrayList<Letter> list = (ArrayList<Letter>) repository.findAll();
+
+        return list;
     }
 }

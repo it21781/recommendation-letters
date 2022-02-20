@@ -1,5 +1,7 @@
 package gr.hua.dit.ds.team8.controller;
 
+import gr.hua.dit.ds.team8.entity.Letter;
+import gr.hua.dit.ds.team8.repository.LetterRepository;
 import gr.hua.dit.ds.team8.services.LetterService;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -13,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 
 import javax.validation.Valid;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 
 @Controller
@@ -45,7 +49,11 @@ public class LetterController {
 
     @GetMapping("/letter_check")
     public String listLetters(Model model) {
-        model.addAttribute("letters", service.getLetters());
+
+        ArrayList<Letter> Letters = new ArrayList();
+        Letters.addAll(service.getLetters());
+        Iterator<Letter> iter = Letters.iterator();
+
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         String username;
         if (principal instanceof UserDetails) {
@@ -53,7 +61,14 @@ public class LetterController {
         } else {
             username = principal.toString();
         }
-        System.out.println(username);
+
+        while (iter.hasNext()) {
+            if (iter.next().toString().contains(username.substring(0, 1).toUpperCase() + username.substring(1))) {
+                continue;
+            }
+            iter.remove();
+        }
+        model.addAttribute("letters", Letters);
 
         return "/letter_check";
     }
