@@ -7,6 +7,6 @@ import java.util.List;
 public interface LetterService {
         Letter createLetter(LetterCreationParameters parameters);
 
-    List<Letter> getLetters();
+        List<Letter> getLetters();
 }
 
