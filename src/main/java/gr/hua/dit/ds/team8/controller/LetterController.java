@@ -91,10 +91,8 @@ public class LetterController {
         String letterid = String.valueOf(serviceid.createLetterid(formId.toParameters()));
 
         Letter letter = service.getLetterById(Integer.parseInt(letterid));
-        System.out.println(letter);
         letter.setApproved(true);
         service.saveLetterById(letter);
-        System.out.println(letter);
 
         return "redirect:/letter_check/creation_success";
     }
