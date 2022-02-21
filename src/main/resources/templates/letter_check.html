@@ -20,13 +20,13 @@
     </ul>
 </main>
 <h3 style="text-align:center;"> Create a Recomenndation Letter</h3>
-<form action="/"
+<form th:object="${formId}" th:action="@{/letter_check}" method="post"
     <p style="text-align:center;">Insert the ID of the request you want to accept</p>
-    <input style="text-align:center;" type="text" id="id">
+    <input style="text-align:center;" type="text" id="letterid" th:field="*{letterid}">
     <p style="text-align:center;">Insert the text of the  recommendation letter</p>
     <textarea style="text-align:center;" id="w3review" name="w3review" rows="6" cols="80"></textarea>
     <br><br>
-    <input style="text-align:center;" type="submit" value="Submit">
+    <input style="text-align:center;" type="submit" id="submittext" value="Submit">
 </form>
 <form th:action="@{/appLogout}" method="POST">
     <input type="submit" value="Log Out"/>

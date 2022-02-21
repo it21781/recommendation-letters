@@ -1,8 +1,8 @@
 package gr.hua.dit.ds.team8.controller;
 
 import gr.hua.dit.ds.team8.entity.Letter;
-import gr.hua.dit.ds.team8.repository.LetterRepository;
 import gr.hua.dit.ds.team8.services.LetterService;
+import gr.hua.dit.ds.team8.services.LetteridService;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
@@ -23,9 +23,11 @@ import java.util.Iterator;
 @RequestMapping("/")
 public class LetterController {
     private final LetterService service;
+    private final LetteridService serviceid;
 
-    public LetterController(LetterService service) {
+    public LetterController(LetterService service, LetteridService serviceid) {
         this.service = service;
+        this.serviceid = serviceid;
     }
 
     @GetMapping("/letter_request")
@@ -69,8 +71,23 @@ public class LetterController {
             iter.remove();
         }
         model.addAttribute("letters", Letters);
+        model.addAttribute("formId", new CreateLetteridFormData());
 
         return "/letter_check";
+    }
+
+    @PostMapping("/letter_check")
+    public String doCreateLetterid(@Valid @ModelAttribute("formId") CreateLetteridFormData formId,
+                                 BindingResult bindingResult,
+                                 Model model) {
+        if (bindingResult.hasErrors()) {
+            return "/letter_check";
+        }
+
+        String letterid = String.valueOf(serviceid.createLetterid(formId.toParameters()));
+        System.out.println(letterid);
+
+        return "redirect:/letter_request/success";
     }
 
 }
