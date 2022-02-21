@@ -1,6 +1,7 @@
 package gr.hua.dit.ds.team8.controller;
 
 import gr.hua.dit.ds.team8.entity.Letter;
+import gr.hua.dit.ds.team8.repository.LetterRepository;
 import gr.hua.dit.ds.team8.services.LetterService;
 import gr.hua.dit.ds.team8.services.LetteridService;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -86,7 +87,7 @@ public class LetterController {
 
         String letterid = String.valueOf(serviceid.createLetterid(formId.toParameters()));
 
-
+        LetterRepository.updateApproved(letterid);
 
         return "redirect:/letter_request/success";
     }
