@@ -69,6 +69,13 @@ public class LetterController {
         }
 
         while (iter.hasNext()) {
+            if (iter.next().getApproved() == false) {
+                continue;
+            }
+            iter.remove();
+        }
+        iter = Letters.iterator();
+        while (iter.hasNext()) {
             if (iter.next().toString().contains(username.substring(0, 1).toUpperCase() + username.substring(1))) {
                 continue;
             }
