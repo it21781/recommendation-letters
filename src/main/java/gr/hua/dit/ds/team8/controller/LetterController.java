@@ -1,6 +1,7 @@
 package gr.hua.dit.ds.team8.controller;
 
 import gr.hua.dit.ds.team8.entity.Letter;
+import gr.hua.dit.ds.team8.entity.Letterid;
 import gr.hua.dit.ds.team8.repository.LetterRepository;
 import gr.hua.dit.ds.team8.services.LetterService;
 import gr.hua.dit.ds.team8.services.LetteridService;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.Optional;
 
 
 @Controller
@@ -86,8 +88,6 @@ public class LetterController {
         }
 
         String letterid = String.valueOf(serviceid.createLetterid(formId.toParameters()));
-
-        LetterRepository.updateApproved(letterid);
 
         return "redirect:/letter_request/success";
     }
