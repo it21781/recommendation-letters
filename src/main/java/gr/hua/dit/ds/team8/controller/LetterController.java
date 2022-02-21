@@ -85,7 +85,8 @@ public class LetterController {
         }
 
         String letterid = String.valueOf(serviceid.createLetterid(formId.toParameters()));
-        System.out.println(letterid);
+
+
 
         return "redirect:/letter_request/success";
     }

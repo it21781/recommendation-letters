@@ -29,6 +29,6 @@ public class Letterid {
 
     @Override
     public String toString() {
-        return "Letterid [id=" + letterid+"]";
+        return letterid;
     }
 }
