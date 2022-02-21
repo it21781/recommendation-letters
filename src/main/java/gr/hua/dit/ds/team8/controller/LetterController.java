@@ -90,7 +90,7 @@ public class LetterController {
 
         String letterid = String.valueOf(serviceid.createLetterid(formId.toParameters()));
 
-        return "redirect:/letter_request/creation_success";
+        return "redirect:/letter_check/creation_success";
     }
 
 }

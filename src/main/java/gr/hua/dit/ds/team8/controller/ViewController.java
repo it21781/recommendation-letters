@@ -21,8 +21,7 @@ public class ViewController {
         return "letter_check";
     }
 
-
-    @RequestMapping ("/letter_check/creation_success*")
+    @RequestMapping ("/letter_check/creation_success")
     public String LetterCheckSuccess() {
         return "creation_success";
     }
