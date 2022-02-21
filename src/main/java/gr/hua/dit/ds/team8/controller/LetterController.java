@@ -49,7 +49,8 @@ public class LetterController {
 
         service.createLetter(formData.toParameters());
 
-        return "redirect:/letter_request/success";
+        //model.addAttribute("greeting", greeting);
+        return "redirect:/letter_request/request_success";
     }
 
     @GetMapping("/letter_check")
@@ -89,7 +90,7 @@ public class LetterController {
 
         String letterid = String.valueOf(serviceid.createLetterid(formId.toParameters()));
 
-        return "redirect:/letter_request/success";
+        return "redirect:/letter_request/creation_success";
     }
 
 }

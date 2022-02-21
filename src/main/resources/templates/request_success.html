@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>request_success</title>
+</head>
+<img src="https://www.hua.gr/files/logo.png" alt="wefg "
+     width="1300" height="140">
+<body style="background-color:LightGray;">
+
+<h1  style="text-align:center;"> RECOMMENDATION   LETTERS   PLATFORM </h1>
+<h2 style="text-align:center;color:forestgreen "> LETTER REQUEST SUBMISSION SUCCESSFULL!! </h2>
+<!--
+<p th:text="${formData.student_fn},${formData.student_ln},${formData.teacher_fn}${formData.teacher_ln},${formData.purpose},${formData.marks},${formData.email}" />
+-->
+<form th:action="@{/appLogout}" method="POST">
+    <input style="text-align:center;" type="submit" value="Log Out" />
+</form>
+
+</body>
+</html>
