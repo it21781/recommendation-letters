@@ -128,6 +128,6 @@ public class Letter {
 
     @Override
     public String toString() {
-        return "Letter [id=" + id + ", student_fn=" + student_fn + ", student_ln=" + student_ln + ", teacher_fn=" + teacher_fn + ", teacher_ln=" + teacher_ln + ", purpose=" + purpose +", marks=" + marks + ", email=" + email + "]";
+        return "Letter [id=" + id + ", student_fn=" + student_fn + ", student_ln=" + student_ln + ", teacher_fn=" + teacher_fn + ", teacher_ln=" + teacher_ln + ", purpose=" + purpose +", marks=" + marks + ", email=" + email + ",approve=" + approved + "]";
     }
 }

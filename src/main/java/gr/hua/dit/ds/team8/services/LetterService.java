@@ -8,5 +8,9 @@ public interface LetterService {
         Letter createLetter(LetterCreationParameters parameters);
 
         List<Letter> getLetters();
+
+        Letter getLetterById(int letterid);
+
+        Letter saveLetterById(Letter letter);
 }
 
