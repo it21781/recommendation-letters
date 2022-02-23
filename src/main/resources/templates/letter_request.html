@@ -1,56 +1,73 @@
 <!DOCTYPE HTML>
 <html lang="en"
-      xmlns:th="https://www.thymeleaf.org" >
+      xmlns:th="https://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>letter_request</title>
 </head>
+
 <img src="https://www.hua.gr/files/logo.png" alt="wefg "
-     width="900" height="140">
+     width="1300" height="140">
 <body style="background-color:LightGray;">
-<h1 style="text-align:center;"> RECOMMENDATION LETTERS PLATFORM </h1>
+
 <h2 style="text-align:center;"> Insert Letter information!</h2>
 
 <main>
-
-    <form th:object="${formData}"
-          th:action="@{/letter_request}"
-          method="post"
+    <form   onsubmit="return myFunction()"
+            th:object="${formData}"
+            th:action="@{/letter_request}"
+            method="post"
     <label for="student_fn" style="text-align:center;"> Students Firstname</label><br>
-    <input style="text-align:center;" type="text"  id="student_fn"   th:field="*{student_fn}"/><br>
+    <input style="text-align:center;" type="text"  id="student_fn"   th:field="*{student_fn}" required/><br>
 
     <label for="student_ln" style="text-align:center;"> Students Lastname</label><br>
-    <input style="text-align:center;" type="text" id="student_ln" th:field="*{student_ln}"/><br>
+    <input style="text-align:center;" type="text" id="student_ln" th:field="*{student_ln}" required/><br>
 
 
     <label for="teacher_fn" style="text-align:center;"> Teachers Firstname</label><br>
-    <input style="text-align:center;" type="text" id="teacher_fn" th:field="*{teacher_fn}"/><br>
+    <input style="text-align:center;" type="text" id="teacher_fn" th:field="*{teacher_fn}" required/><br>
 
     <label for="teacher_ln" style="text-align:center;"> Teachers Lastname</label><br>
-    <input style="text-align:center;" type="text" id="teacher_ln" th:field="*{teacher_ln}"/><br>
+    <input style="text-align:center;" type="text" id="teacher_ln" th:field="*{teacher_ln}" required/><br>
 
-    <u><p style="text-align:center;">Letter purpose </p></u>
-    <input  type="radio" id="intership"  value="intership" th:field="*{purpose}">
+    <u><p  style="text-align:center;">Letter purpose </p></u>
+    <input type="radio"     id="intership"  name = "purpose"   value="intership" th:field="*{purpose}" required/>
     <label for="intership">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Intership</label><br>
-    <input  type="radio" id="postgraduate" value="postgraduate"th:field="*{purpose}">
+    <input type="radio"     id="postgraduate" name = "purpose"   value="postgraduate"th:field="*{purpose}" />
     <label for="postgraduate"> Postgraduate</label><br>
-    <input   type="radio" id="work" value="work"  th:field="*{purpose}">
+    <input type="radio"     id="work"          name = "purpose"   value="work"  th:field="*{purpose}"/>
     <label for="work">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Work</label><br>
     <br>
     <label for="marks" style="text-align:center;"> Studies rating</label><br>
-    <input style="text-align:center;" type="text"  id="marks" th:field="*{marks}" /><br>
+    <input style="text-align:center;" type="number"  id="marks" th:field="*{marks}" required/><br>
 
     <label for="email" style="text-align:center;"> Receiver Email</label><br>
-    <input  style="text-align:center;" type="text"  id="email" th:field="*{email}"/><br>
-
-    <input  style="text-align:center;"  type="submit"  id='submitletter'  value="Submit" />
-
+    <input style="text-align:center;" type="text"       id="email" th:field="*{email}" required/><br>
+    <input style="text-align:center;" type="submit"     id='submitletter'  value="Submit" />
     </form>
+
     <form th:action="@{/appLogout}" method="POST">
         <input  type="submit" value="Log Out"/>
     </form>
+    <script>
+        function myFunction() {
+            var a = document.getElementById("student_fn").value;
+            var b = document.getElementById("student_ln").value;
+            var c = document.getElementById("teacher_fn").value;
+            var d = document.getElementById("teacher_ln").value;
+            var f = document.getElementById("marks").value;
+            var g = document.getElementById("email").value;
+            var purp = document.querySelector('input[name="purpose"]:checked').value;
+            if (f < 5 ) {
+                alert("! INVALID RATING !  (RATING MUST BE BIGGER THAN 5)");
+                return false;
+            }
+            confirm("LETTER INFORMATION/" + "   " + "STUDENT NAME: " + "   " +
+                               a +"   "+ b +  "   " + "TEACHER NAME :" + "  " + c + "   " + d +
+                                "   " + "PURPOSE:" + "  " + purp + "   "+ "STUDIES RATING:" + "   " + f +
+                                "  " + "EMAIL:" + " " + g );
+        }
+    </script>
 </main>
 </body>
-
-
 </html>

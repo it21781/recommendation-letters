@@ -20,17 +20,30 @@
     </ul>
 </main>
 <h3 style="text-align:center;"> Create a Recomenndation Letter</h3>
-<form th:object="${formId}" th:action="@{/letter_check}" method="post"
+<form   onsubmit="return myFunction2()"
+        th:object="${formId}"
+        th:action="@{/letter_check}"
+        method="post"
     <p style="text-align:center;">Insert the ID of the request you want to accept</p>
-    <input style="text-align:center;" type="text" id="letterid" th:field="*{letterid}">
+    <input style="text-align:center;" type="number" id="letterid" th:field="*{letterid}" required/>
     <p style="text-align:center;">Insert the text of the  recommendation letter</p>
-    <textarea style="text-align:center;" id="w3review" name="w3review" rows="6" cols="80"></textarea>
+    <textarea style="text-align:center;" id="textarea" name="textarea" rows="6" cols="80" required/>
     <br><br>
-    <input style="text-align:center;" type="submit" id="submittext" value="Submit">
+    <input style="text-align:center;" type="submit" id="submittext"   value="Submit" />
 </form>
 <form th:action="@{/appLogout}" method="POST">
     <input type="submit" value="Log Out"/>
 </form>
+<script>
+    function myFunction2() {
+        var id = document.getElementById("letterid").value;
+        var textarea = document.getElementById("submittext").value;
+        confirm( "LETTER ID:" + "  " + id  + "  "  + "TEXT:" + "" + text);
+        if (confirm(text) == false) {
+            return false;
+        }
+    }
+</script>
 
 </body>
 </html>
