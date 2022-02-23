@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en"
-      xmlns:th="http://www.thymeleaf.org">
+      xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>letter_check</title>
@@ -10,7 +10,7 @@
      width="900" height="140">
 <h1 style="text-align:center;"> RECOMMENDATION LETTERS PLATFORM </h1>
 <h2 style="text-align:center;"> Requests from Students:</h2>
-<p style="text-align:center;"> ID / Student Name  / Teacher name  / Purpose of recommendation  /Student average Marks / Receiver Email </p>
+<p style="text-align:center;"> ID  /  Student Name  /  Teacher name  /  Purpose of recommendation  /  Student average Marks  /  Receiver Email </p>
 
 <main>
 <ul>
@@ -27,8 +27,9 @@
     <p style="text-align:center;">Insert the ID of the request you want to accept</p>
     <input style="text-align:center;" type="number" id="letterid" th:field="*{letterid}" required/>
     <p style="text-align:center;">Insert the text of the  recommendation letter</p>
-    <textarea style="text-align:center;" id="textarea" name="textarea" rows="6" cols="80" required/>
-    <br><br>
+
+    <textarea style="text-align:center;" id="textarea"  rows="6" cols="80"   required/></textarea>
+<br></br>
     <input style="text-align:center;" type="submit" id="submittext"   value="Submit" />
 </form>
 <form th:action="@{/appLogout}" method="POST">
@@ -37,11 +38,8 @@
 <script>
     function myFunction2() {
         var id = document.getElementById("letterid").value;
-        var textarea = document.getElementById("submittext").value;
-        confirm( "LETTER ID:" + "  " + id  + "  "  + "TEXT:" + "" + text);
-        if (confirm(text) == false) {
-            return false;
-        }
+        var textarea = document.getElementById("textarea").value;
+        alert( "LETTER ID:" + "  " + id  + "  "  + "TEXT:" + "" + textarea);
     }
 </script>
 

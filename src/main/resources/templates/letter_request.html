@@ -39,7 +39,7 @@
     <label for="work">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Work</label><br>
     <br>
     <label for="marks" style="text-align:center;"> Studies rating</label><br>
-    <input style="text-align:center;" type="number"  id="marks" th:field="*{marks}" required/><br>
+    <input style="text-align:center;" type="number" step="0.1" id="marks" th:field="*{marks}" required/><br>
 
     <label for="email" style="text-align:center;"> Receiver Email</label><br>
     <input style="text-align:center;" type="text"       id="email" th:field="*{email}" required/><br>
@@ -58,11 +58,11 @@
             var f = document.getElementById("marks").value;
             var g = document.getElementById("email").value;
             var purp = document.querySelector('input[name="purpose"]:checked').value;
-            if (f < 5 ) {
-                alert("! INVALID RATING !  (RATING MUST BE BIGGER THAN 5)");
+            if (f < 5  || f > 10) {
+                alert("! INVALID RATING !  (RATING MUST BE BETWEEN 5 AND 10)");
                 return false;
             }
-            confirm("LETTER INFORMATION/" + "   " + "STUDENT NAME: " + "   " +
+            alert("LETTER INFORMATION/" + "   " + "STUDENT NAME: " + "   " +
                                a +"   "+ b +  "   " + "TEACHER NAME :" + "  " + c + "   " + d +
                                 "   " + "PURPOSE:" + "  " + purp + "   "+ "STUDIES RATING:" + "   " + f +
                                 "  " + "EMAIL:" + " " + g );
